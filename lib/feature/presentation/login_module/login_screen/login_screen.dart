@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
-import '../../../../core/utils/color_utils.dart';
+import '../../../../core/core_widget/next_button.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -12,19 +13,21 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        alignment: Alignment.bottomCenter,
-        child: Column(
-          children: [
-            Text(
-              "Continue",
-              style: TextStyle(
-                color: ColorUtils.appColor,
-                decoration: TextDecoration.none,
-              ),
-            ),
-          ],
+    return SafeArea(
+      top: false,
+      child: Scaffold(
+        body: Container(
+          color: Colors.white,
+          width: MediaQuery.of(context).size.width,
+          alignment: Alignment.bottomCenter,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisSize: MainAxisSize.min,
+            children: const [
+              NextButton(),
+              SizedBox(height: 10),
+            ],
+          ),
         ),
       ),
     );
