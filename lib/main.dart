@@ -13,9 +13,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Zip Loan',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.deepOrange,
-      ),
       home: const SplashScreen(),
     );
   }
