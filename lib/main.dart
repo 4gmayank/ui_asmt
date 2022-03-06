@@ -4,6 +4,9 @@ import 'package:zip_loan/feature/presentation/login_module/splash_screen/splash_
 
 import 'core/config/localization.dart';
 import 'feature/presentation/login_module/login_screen/login_screen.dart';
+import 'feature/presentation/register_module/business_detail_screen/business_detail_screen.dart';
+import 'feature/presentation/register_module/personal_detail_screen/personal_detail_screen.dart';
+import 'feature/presentation/register_module/seek_loan_detail_screen/seek_loan_detail_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,9 +34,9 @@ class MyApp extends StatelessWidget {
 
       AppRoutes.splash: (context) => const SplashScreen(),
       AppRoutes.login_screen: (context) => const LoginScreen(),
-      // AppRoutes.personal_detail_screen : (context)=> PersonalDetailScreen(),
-      // AppRoutes.business_detail_screen : (context)=> BusinessDetailScreen(),
-      // AppRoutes.seek_loan_screen : (context)=> SeekLoanScreen(),
+      AppRoutes.personal_detail_screen : (context)=> PersonalDetailScreen(),
+      AppRoutes.business_detail_screen : (context)=> BusinessDetailScreen(),
+      AppRoutes.seek_loan_screen : (context)=> SeekLoanScreen(),
 
     };
   }
