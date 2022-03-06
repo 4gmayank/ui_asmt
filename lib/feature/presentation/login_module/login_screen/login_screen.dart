@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:zip_loan/core/constants/pin_widget.dart';
 import 'package:zip_loan/core/core_widget/space_widget.dart';
 
@@ -73,6 +74,10 @@ class LoginScreenState extends State<LoginScreen> {
                         textAlign: TextAlign.left,
                         keyboardType: TextInputType.number,
                         controller: _mobileNumberInputController,
+                        inputFormatters: [
+                          MaskTextInputFormatter(
+                              mask: 'd#########', filter: {"#": RegExp(r'[0-9]'), "d": RegExp(r'[6-9]')}),
+                        ],
                         onEditingComplete: () => {},
                         decoration: InputDecoration(
                           hintText:
