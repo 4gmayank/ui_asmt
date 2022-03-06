@@ -3,18 +3,18 @@ import 'dart:ui';
 import 'package:zip_loan/core/utils/color_utils.dart';
 
 class FontStyles {
-  static const String FONT_HEADLINE = "Roboto";
+  static const String FONT_HEADLINE = "roboto";
 
-  static TextStyle normalStyle(
+  TextStyle normalStyle(
       {double letterSpacing = 0,
-      double height: 1,
+      double height= 1,
       double fontSize = 12.0,
       Color fontColor = ColorUtils.textColor,
       FontStyle fontStyle = FontStyle.normal,
       String fontFamily = FontStyles.FONT_HEADLINE,
       FontWeight fontWeight = FontWeight.w400,
       bool isUnderline = false}) {
-    return _normalFontStyle(
+    return normalFontStyle(
       letterSpacing: letterSpacing,
       height: height,
       fontSize: fontSize,
@@ -25,9 +25,9 @@ class FontStyles {
     );
   }
 
-  static TextStyle _normalFontStyle(
+  static TextStyle normalFontStyle(
       {double fontSize = 12.0,
-      double height: 1,
+      double height= 1,
       double letterSpacing = 0,
       Color fontColor = ColorUtils.textColor,
       FontWeight fontWeight = FontWeight.normal,

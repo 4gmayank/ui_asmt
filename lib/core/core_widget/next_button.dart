@@ -33,7 +33,7 @@ class NextButton extends StatelessWidget {
           ],
         ),
         child: Text(
-          MyLocalizations.of(context).getString("continue"),
+          MyLocalizations.of(context).getString(isVerify?"verify_continue":"continue"),
           style: const TextStyle(
               color: ColorUtils.white,
               fontStyle: FontStyle.normal,

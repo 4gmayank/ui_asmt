@@ -1,6 +1,6 @@
 {
   "app_name": "Ziploan",
-  "welcome_ziploan ":"welcome to ziploan",
+  "welcome_ziploan":"welcome to ziploan",
   "sign_up_info_msg":"Sign-up/ login to apply for Line of Credit",
   "otp_send_info_msg":"OTP will be sent to this number for verification",
   "otp": "Otp",
@@ -14,7 +14,7 @@
   "business_address":"Business Address",
   "business_name":"Business Name",
   "gst":"GST",
-  "business_details":"Business Details",
+    "business_details":"Business Details",
   "verify":"Verify",
   "verify_continue":"Verify & Continue",
   "personal_details":"Personal Details"
