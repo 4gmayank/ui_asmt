@@ -35,14 +35,15 @@ class LoginScreenState extends State<LoginScreen> {
     return SafeArea(
       top: true,
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: true,
         body: Container(
           color: Colors.white,
           width: MediaQuery.of(context).size.width,
-          alignment: Alignment.bottomCenter,
           child: Column(
             children: [
-              _bannerBox(),
+              Visibility(
+                  visible: WidgetsBinding.instance != null && WidgetsBinding.instance?.window.viewInsets.bottom==0.0,
+                  child: _bannerBox()),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                 child: Column(
