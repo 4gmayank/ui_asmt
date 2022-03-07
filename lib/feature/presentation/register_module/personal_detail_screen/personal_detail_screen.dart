@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import '../../../../core/config/localization.dart';
 import '../../../../core/core_widget/input_widget.dart';
 import '../../../../core/core_widget/next_button.dart';
+import '../../../../core/core_widget/space_widget.dart';
 import '../../../../core/utils/app_routes.dart';
 import '../../../../core/utils/color_utils.dart';
 
@@ -21,7 +22,7 @@ class _PersonalDetailScreenState extends State<PersonalDetailScreen> {
       top: true,
       child: Scaffold(
         body: Container(
-          padding: const EdgeInsets.symmetric(vertical: 20),
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
           color: Colors.white,
           width: MediaQuery.of(context).size.width,
           child: SingleChildScrollView(
@@ -37,6 +38,7 @@ class _PersonalDetailScreenState extends State<PersonalDetailScreen> {
                       decoration: TextDecoration.none,
                       fontSize: 30),
                 ),
+                SpaceWidget(height: 20),
                 _formInput(),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -57,7 +59,7 @@ class _PersonalDetailScreenState extends State<PersonalDetailScreen> {
   }
   Widget _formInput() {
     return Column(
-      children: [
+      children: const [
         InputWidget(constTitle: "amount"),
         InputWidget(constTitle: "name"),
         InputWidget(constTitle: "dob", infoIcon: true,),

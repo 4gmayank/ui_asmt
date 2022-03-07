@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:zip_loan/core/core_widget/input_widget.dart';
+import 'package:zip_loan/core/core_widget/space_widget.dart';
 import 'package:zip_loan/feature/presentation/login_module/login_screen/login_screen.dart';
 
 import '../../../../core/config/localization.dart';
@@ -22,7 +23,7 @@ class _BusinessDetailScreenState extends State<BusinessDetailScreen> {
       top: true,
       child: Scaffold(
         body: Container(
-          padding: const EdgeInsets.symmetric(vertical: 20),
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
           color: Colors.white,
           width: MediaQuery.of(context).size.width,
           child: SingleChildScrollView(
@@ -37,6 +38,7 @@ class _BusinessDetailScreenState extends State<BusinessDetailScreen> {
                       fontWeight: FontWeight.w700,
                       fontSize: 30),
                 ),
+                SpaceWidget(height: 20),
                 _formInput(),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -58,7 +60,7 @@ class _BusinessDetailScreenState extends State<BusinessDetailScreen> {
 
   Widget _formInput() {
     return Column(
-      children: [
+      children: const [
         InputWidget(constTitle: "gst"),
         InputWidget(constTitle: "business_name"),
         InputWidget(constTitle: "business_address", infoIcon: true,),
