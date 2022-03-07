@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import '../../../../core/config/localization.dart';
+import '../../../../core/core_widget/input_widget.dart';
 import '../../../../core/core_widget/next_button.dart';
 import '../../../../core/utils/app_routes.dart';
 import '../../../../core/utils/color_utils.dart';
@@ -36,7 +37,7 @@ class _PersonalDetailScreenState extends State<PersonalDetailScreen> {
                       decoration: TextDecoration.none,
                       fontSize: 30),
                 ),
-
+                _formInput(),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: NextButton(
@@ -52,6 +53,18 @@ class _PersonalDetailScreenState extends State<PersonalDetailScreen> {
           ),
         ),
       ),
+    );
+  }
+  Widget _formInput() {
+    return Column(
+      children: [
+        InputWidget(constTitle: "amount"),
+        InputWidget(constTitle: "name"),
+        InputWidget(constTitle: "dob", infoIcon: true,),
+        InputWidget(constTitle: "address"),
+        InputWidget(constTitle: "pin_code", infoIcon: true,),
+        InputWidget(constTitle: "email"),
+      ],
     );
   }
 }

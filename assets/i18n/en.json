@@ -17,5 +17,6 @@
     "business_details":"Business Details",
   "verify":"Verify",
   "verify_continue":"Verify & Continue",
-  "personal_details":"Personal Details"
+  "personal_details":"Personal Details",
+  "amount": "Amount"
 }

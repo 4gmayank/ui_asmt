@@ -76,7 +76,7 @@ class LoginScreenState extends State<LoginScreen> {
                         controller: _mobileNumberInputController,
                         inputFormatters: [
                           MaskTextInputFormatter(
-                              mask: 'd#########', filter: {"#": RegExp(r'[0-9]'), "d": RegExp(r'[6-9]')}),
+                              mask: 'd#########', filter: {"#": RegExp(r'[0-9]'), "d": RegExp(r'[7-9]')}),
                         ],
                         onEditingComplete: () => {},
                         decoration: InputDecoration(
@@ -101,9 +101,8 @@ class LoginScreenState extends State<LoginScreen> {
                     SpaceWidget(height: 40),
                     NextButton(
                       function: () {
-                        Navigator.of(context).pushNamedAndRemoveUntil(
-                            AppRoutes.personal_detail_screen,
-                            (Route<dynamic> route) => false);
+                        Navigator.of(context).pushNamed(
+                            AppRoutes.personal_detail_screen);
                       },
                     ),
                     const SizedBox(height: 10),
