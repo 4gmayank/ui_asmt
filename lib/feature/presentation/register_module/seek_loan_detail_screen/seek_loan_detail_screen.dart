@@ -24,34 +24,37 @@ class _SeekLoanScreenState extends State<SeekLoanScreen> {
       child: Scaffold(
         backgroundColor: ColorUtils.white,
         body: Container(
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+          margin: const EdgeInsets.symmetric(horizontal: 10),
           color: Colors.white,
           width: MediaQuery.of(context).size.width,
           child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  MyLocalizations.of(context).getString("loan_detail"),
-                  style: LoginScreenState.normalStyle(
-                      fontColor: ColorUtils.appColor,
-                      fontStyle: FontStyle.normal,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 30),
-                ),
-                SpaceWidget(height: 20),
-                _formInput(),
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: NextButton(
-                    isVerify: true,
-                    function: () {
-                      Navigator.of(context)
-                          .pushNamed(AppRoutes.seek_loan_screen);
-                    },
+            child: Container(
+              margin: const EdgeInsets.symmetric(vertical: 10),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    MyLocalizations.of(context).getString("loan_detail"),
+                    style: LoginScreenState.normalStyle(
+                        fontColor: ColorUtils.appColor,
+                        fontStyle: FontStyle.normal,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 30),
                   ),
-                ),
-              ],
+                  SpaceWidget(height: 20),
+                  _formInput(),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: NextButton(
+                      isVerify: true,
+                      function: () {
+                        Navigator.of(context)
+                            .pushNamed(AppRoutes.seek_loan_screen);
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -61,7 +64,7 @@ class _SeekLoanScreenState extends State<SeekLoanScreen> {
 
   Widget _formInput() {
     return Column(
-      children: const [
+      children: [
         InputWidget(
           constTitle: "amount",
           showBarrier: true,
@@ -75,10 +78,84 @@ class _SeekLoanScreenState extends State<SeekLoanScreen> {
           constTitle: "pan",
           showBarrier: true,
         ),
-        InputWidget(
-          constTitle: "pan",
-        ),
+        uploadPan(),
       ],
+    );
+  }
+
+  Widget uploadPan() {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            alignment: Alignment.center,
+            child: Text(
+              MyLocalizations.of(context).getString("pan"),
+              style: LoginScreenState.normalStyle(
+                  fontColor: ColorUtils.appColor,
+                  fontStyle: FontStyle.normal,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 22),
+            ),
+          ),
+          Visibility(
+            visible: false,
+            child: Text(
+              " : ",
+              style: LoginScreenState.normalStyle(
+                  fontColor: ColorUtils.appColor,
+                  fontStyle: FontStyle.normal,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 22),
+            ),
+            replacement: SpaceWidget(width: 10),
+          ),
+          Expanded(
+            child: Container(
+              alignment: Alignment.center,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                decoration: BoxDecoration(
+                  color: ColorUtils.white,
+                  borderRadius: BorderRadius.circular(10.0),
+                  border: Border.all(color: ColorUtils.black),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.black.withOpacity(.25),
+                        spreadRadius: 0.0,
+                        offset: const Offset(0.0, 4.0),
+                        blurRadius: 4.0),
+                  ],
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.cloud_upload_outlined,
+                      size: 30,
+                    ),
+                    SpaceWidget(
+                      width: 10,
+                    ),
+                    Text(
+                      MyLocalizations.of(context).getString("upload"),
+                      style: const TextStyle(
+                          color: ColorUtils.textColor,
+                          fontStyle: FontStyle.normal,
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.none,
+                          fontSize: 30),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }

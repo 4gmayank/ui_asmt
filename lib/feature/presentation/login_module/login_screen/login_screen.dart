@@ -35,6 +35,7 @@ class LoginScreenState extends State<LoginScreen> {
     return SafeArea(
       top: true,
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Container(
           color: Colors.white,
           width: MediaQuery.of(context).size.width,

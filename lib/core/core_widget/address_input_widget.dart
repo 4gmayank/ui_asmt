@@ -8,35 +8,37 @@ import '../config/localization.dart';
 import '../constants/image_constants.dart';
 import '../utils/color_utils.dart';
 
-class InputWidget extends StatefulWidget {
+class AddressInputWidget extends StatefulWidget {
   final String constTitle;
   final TextEditingController? editingController;
   final bool infoIcon;
   final bool showBarrier;
+  final bool multiline;
 
-  const InputWidget(
+  const AddressInputWidget(
       {Key? key,
       required this.constTitle,
       this.editingController,
       this.showBarrier = false,
+        this.multiline= false,
       this.infoIcon = false})
       : super(key: key);
 
   @override
-  _InputWidgetState createState() => _InputWidgetState();
+  _AddressInputWidgetState createState() => _AddressInputWidgetState();
 }
 
-class _InputWidgetState extends State<InputWidget> {
+class _AddressInputWidgetState extends State<AddressInputWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10),
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            alignment: Alignment.center,
+            alignment: Alignment.topLeft,
             child: Text(
               MyLocalizations.of(context).getString(widget.constTitle),
               style: LoginScreenState.normalStyle(
@@ -58,6 +60,7 @@ class _InputWidgetState extends State<InputWidget> {
             ),
             replacement: SpaceWidget(width: 10),
           ),
+          SpaceWidget(height: 10,),
           Flexible(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -102,6 +105,54 @@ class _InputWidgetState extends State<InputWidget> {
                     ),
                   ),
               ],
+            ),
+          ),
+          Visibility(
+            visible: widget.multiline,
+            child: Flexible(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    decoration: BoxDecoration(
+                      color: ColorUtils.white,
+                      borderRadius: BorderRadius.circular(10.0),
+                      border: Border.all(color: ColorUtils.black),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.black.withOpacity(.25),
+                            spreadRadius: 0.0,
+                            offset: const Offset(0.0, 4.0),
+                            blurRadius: 4.0),
+                      ],
+                    ),
+                    child: TextFormField(
+                      onEditingComplete: () => {},
+                      decoration: const InputDecoration(
+                        contentPadding: EdgeInsets.only(left: 12.0),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                        ),
+                      ),
+                    ),
+                  ),
+                    Visibility(
+                      visible: widget.infoIcon,
+                      child: Container(
+                        padding: const EdgeInsets.only(top: 10, bottom: 5),
+                        alignment: Alignment.topRight,
+                        child: SvgPicture.asset(
+                          ImageConstants.INFO_ICON,
+                          height: 20,
+                        ),
+                      ),
+                      replacement: Container(
+                        height: 20,
+                      ),
+                    ),
+                ],
+              ),
             ),
           )
         ],
