@@ -18,5 +18,8 @@
   "verify":"Verify",
   "verify_continue":"Verify & Continue",
   "personal_details":"Personal Details",
-  "amount": "Amount"
+  "purpose": "Purpose",
+  "amount": "Amount",
+  "loan_detail": "Loan Requirement Detail",
+  "pan": "PAN"
 }

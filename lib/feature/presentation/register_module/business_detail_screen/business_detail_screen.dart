@@ -22,6 +22,7 @@ class _BusinessDetailScreenState extends State<BusinessDetailScreen> {
     return SafeArea(
       top: true,
       child: Scaffold(
+        backgroundColor: ColorUtils.white,
         body: Container(
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
           color: Colors.white,

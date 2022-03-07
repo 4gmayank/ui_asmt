@@ -16,7 +16,7 @@ class MyLocalizations {
 
   /// Getting list from en.json
   List<String> getList(String key) {
-    final List<String> items = new List.empty(growable: true);
+    final List<String> items = List.empty(growable: true);
     if (language![key] is List) {
       items.addAll(List<String>.from(language![key].whereType<String>()));
     }  
